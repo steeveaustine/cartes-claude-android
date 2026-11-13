@@ -1,13 +1,12 @@
-# 50 cartes Claude, appli Android
+# Claude en main, appli Android
 
-Appli hors ligne : les 50 fiches sont dans le téléphone, aucune autorisation demandée.
+Un couteau suisse et une formation pour tirer le meilleur de Claude : 70 outils avec consigne à compléter, 25 leçons, un atelier de consignes. Hors ligne, aucune autorisation demandée. Guide indépendant, non officiel.
 
-## Obtenir l'APK avec GitHub
+## Installer
 
-1. Sur github.com, crée un dépôt (privé si tu veux), par exemple `cartes-claude-android`.
-2. Dézippe ce dossier et envoie tout son contenu dans le dépôt, dossier `.github` compris.
-3. Ouvre l'onglet Actions. La fabrication démarre toute seule et dure environ trois minutes.
-4. Clique sur la fabrication terminée, puis télécharge `cartes-claude-apk` en bas de page.
-5. Dézippe, envoie `app-debug.apk` sur ton téléphone et ouvre-le pour l'installer.
+Ouvre ce lien depuis le téléphone, connecté à GitHub :
+https://github.com/steeveaustine/cartes-claude-android/releases/download/apk/claude-en-main.apk
 
-Pour changer le contenu, remplace `app/src/main/assets/index.html` et renvoie le fichier : un nouvel APK est fabriqué.
+## Modifier
+
+Le contenu de l'appli est dans `app/src/main/assets/index.html`. À chaque envoi sur GitHub, un nouvel APK est fabriqué et remplace l'ancien à la même adresse. Les mises à jour s'installent par-dessus la version en place.

@@ -16,15 +16,28 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: "8.9"
+      - name: Télécharger les polices
+        run: |
+          mkdir -p app/src/main/assets/fonts && cd app/src/main/assets/fonts
+          get() { curl -fsSL --retry 2 -m 60 -o "$1" "$2" || rm -f "$1"; }
+          get bricolage.woff2 "https://cdn.jsdelivr.net/npm/@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2"
+          get instrument.woff2 "https://cdn.jsdelivr.net/npm/@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-normal.woff2"
+          [ -s bricolage.woff2 ] || get bricolage.ttf "https://raw.githubusercontent.com/google/fonts/main/ofl/bricolagegrotesque/BricolageGrotesque%5Bopsz%2Cwdth%2Cwght%5D.ttf"
+          [ -s instrument.woff2 ] || get instrument.ttf "https://raw.githubusercontent.com/google/fonts/main/ofl/instrumentsans/InstrumentSans%5Bwdth%2Cwght%5D.ttf"
+          find . -type f -size -8k -delete
+          ls -la
+      - name: Vérifier les polices
+        continue-on-error: true
+        run: ls app/src/main/assets/fonts/bricolage.* app/src/main/assets/fonts/instrument.*
       - run: gradle assembleDebug
-      - run: cp app/build/outputs/apk/debug/app-debug.apk cartes-claude.apk
+      - run: cp app/build/outputs/apk/debug/app-debug.apk claude-en-main.apk
       - uses: actions/upload-artifact@v4
         with:
-          name: cartes-claude-apk
-          path: cartes-claude.apk
+          name: claude-en-main-apk
+          path: claude-en-main.apk
       - name: Publier l'APK en téléchargement direct
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release delete apk --yes --cleanup-tag || true
-          gh release create apk cartes-claude.apk --title "50 cartes Claude" --notes "Ouvre le fichier cartes-claude.apk sur ton téléphone Android pour installer l'appli."
+          gh release create apk claude-en-main.apk --title "Claude en main" --notes "Ouvre le fichier claude-en-main.apk sur ton téléphone Android pour installer l'appli."
