@@ -2,6 +2,8 @@ name: Fabriquer l'APK
 on:
   push:
   workflow_dispatch:
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,7 +17,14 @@ jobs:
         with:
           gradle-version: "8.9"
       - run: gradle assembleDebug
+      - run: cp app/build/outputs/apk/debug/app-debug.apk cartes-claude.apk
       - uses: actions/upload-artifact@v4
         with:
           name: cartes-claude-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: cartes-claude.apk
+      - name: Publier l'APK en téléchargement direct
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete apk --yes --cleanup-tag || true
+          gh release create apk cartes-claude.apk --title "50 cartes Claude" --notes "Ouvre le fichier cartes-claude.apk sur ton téléphone Android pour installer l'appli."
