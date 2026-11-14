@@ -1,6 +1,10 @@
 name: Fabriquer l'APK
 on:
   push:
+    paths-ignore:
+      - "ios/**"
+      - ".github/workflows/ipa.yml"
+      - "LISEZMOI.md"
   workflow_dispatch:
 permissions:
   contents: write

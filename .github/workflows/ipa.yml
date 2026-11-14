@@ -1,0 +1,48 @@
+name: Fabriquer l'appli iPhone
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "ios/**"
+      - "app/src/main/assets/index.html"
+      - ".github/workflows/ipa.yml"
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Préparer la page, le pont iPhone et les polices
+        run: bash ios/prepare.sh
+      - name: Générer le projet Xcode
+        run: |
+          brew list xcodegen >/dev/null 2>&1 || brew install xcodegen
+          cd ios && xcodegen generate
+      - name: Compiler pour iPhone (sans signature)
+        run: |
+          cd ios
+          xcodebuild -version
+          xcodebuild -project ClaudeEnMain.xcodeproj -target ClaudeEnMain \
+            -configuration Release -sdk iphoneos SYMROOT="$PWD/build" \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            -quiet build
+      - name: Emballer l'IPA
+        run: |
+          cd ios
+          APP=build/Release-iphoneos/ClaudeEnMain.app
+          test -f "$APP/Web/index.html" && test -f "$APP/Web/bridge.js"
+          rm -rf Payload && mkdir Payload && cp -R "$APP" Payload/
+          zip -qry ../claude-en-main.ipa Payload
+          ls -la ../claude-en-main.ipa
+      - uses: actions/upload-artifact@v4
+        with:
+          name: claude-en-main-ipa
+          path: claude-en-main.ipa
+      - name: Publier l'IPA dans les versions du dépôt
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete ipa --yes --cleanup-tag || true
+          gh release create ipa claude-en-main.ipa --title "Claude en main pour iPhone" \
+            --notes "Fichier non signé. Pour l'installer sur ton iPhone : Sideloadly sur ton PC Windows, avec ton identifiant Apple (voir LISEZMOI)."

@@ -1,0 +1,31 @@
+# Description du projet Xcode, transformée en ClaudeEnMain.xcodeproj par XcodeGen
+# (brew install xcodegen, puis : ./prepare.sh && xcodegen generate).
+name: ClaudeEnMain
+options:
+  bundleIdPrefix: fr.claudeenmain
+  deploymentTarget:
+    iOS: "15.0"
+settings:
+  base:
+    MARKETING_VERSION: "4.0"
+    CURRENT_PROJECT_VERSION: "4"
+    SWIFT_VERSION: "5.0"
+targets:
+  ClaudeEnMain:
+    type: application
+    platform: iOS
+    deploymentTarget: "15.0"
+    sources:
+      - path: ClaudeEnMain
+      - path: Web
+        type: folder
+        buildPhase: resources
+    settings:
+      base:
+        INFOPLIST_FILE: Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        PRODUCT_BUNDLE_IDENTIFIER: fr.claudeenmain
+        PRODUCT_NAME: ClaudeEnMain
+        TARGETED_DEVICE_FAMILY: "1,2"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ENABLE_PREVIEWS: NO

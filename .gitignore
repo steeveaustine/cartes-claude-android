@@ -2,3 +2,8 @@
 build/
 app/build/
 local.properties
+ios/Web/
+ios/build/
+ios/Payload/
+ios/*.xcodeproj/
+*.ipa
