@@ -22,13 +22,15 @@ jobs:
           get() { curl -fsSL --retry 2 -m 60 -o "$1" "$2" || rm -f "$1"; }
           get bricolage.woff2 "https://cdn.jsdelivr.net/npm/@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2"
           get instrument.woff2 "https://cdn.jsdelivr.net/npm/@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-normal.woff2"
+          get caveat.woff2 "https://cdn.jsdelivr.net/npm/@fontsource-variable/caveat/files/caveat-latin-wght-normal.woff2"
+          [ -s caveat.woff2 ] || get caveat.ttf "https://raw.githubusercontent.com/google/fonts/main/ofl/caveat/Caveat%5Bwght%5D.ttf"
           [ -s bricolage.woff2 ] || get bricolage.ttf "https://raw.githubusercontent.com/google/fonts/main/ofl/bricolagegrotesque/BricolageGrotesque%5Bopsz%2Cwdth%2Cwght%5D.ttf"
           [ -s instrument.woff2 ] || get instrument.ttf "https://raw.githubusercontent.com/google/fonts/main/ofl/instrumentsans/InstrumentSans%5Bwdth%2Cwght%5D.ttf"
           find . -type f -size -8k -delete
           ls -la
       - name: Vérifier les polices
         continue-on-error: true
-        run: ls app/src/main/assets/fonts/bricolage.* app/src/main/assets/fonts/instrument.*
+        run: ls app/src/main/assets/fonts/bricolage.* app/src/main/assets/fonts/instrument.* app/src/main/assets/fonts/caveat.*
       - run: gradle assembleDebug
       - run: cp app/build/outputs/apk/debug/app-debug.apk claude-en-main.apk
       - uses: actions/upload-artifact@v4

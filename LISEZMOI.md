@@ -1,6 +1,6 @@
 # Claude en main, appli Android
 
-Un couteau suisse et une formation pour tirer le meilleur de Claude : 70 outils avec consigne à compléter, 25 leçons, un atelier de consignes. Hors ligne, aucune autorisation demandée. Guide indépendant, non officiel.
+Tout ce que Claude peut faire : les idées de la vidéo et celles qu'elle a oubliées, chacune avec un tuto complet, des croquis et les consignes à copier. Hors ligne, aucune autorisation demandée. Guide indépendant, non officiel.
 
 ## Installer
 
