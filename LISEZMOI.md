@@ -1,6 +1,6 @@
 # Claude en main, appli Android
 
-Tout ce que Claude peut faire : les idées de la vidéo et celles qu'elle a oubliées, chacune avec un tuto complet, des croquis et les consignes à copier. Hors ligne, aucune autorisation demandée. Guide indépendant, non officiel.
+Tout ce que Claude peut faire, rangé par thème : 68 tutos détaillés, un schéma pour chaque étape, les gestes précis et les consignes à copier. Hors ligne, aucune autorisation demandée. Guide indépendant, non officiel.
 
 ## Installer
 
