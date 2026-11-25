@@ -1,0 +1,6 @@
+Cache fenetre plexi - trou 150 mm - v1
+Usage : boucher le trou du tuyau de clim mobile en hiver. Collerette cote interieur, jupe dans le trou.
+Cotes : collerette 180 x 2,4 mm ; jupe 149,6 mm (jeu 0,4) haute de 6 mm ; 36 nervures de 0,6 mm qui ecrasent en force.
+Languette avec trou pour le retirer. Hauteur totale 8,4 mm.
+Matiere : PETG conseille (vitre froide, soleil l'ete), PLA possible. Impression collerette a plat, sans support.
+Reglages : TROU, JEU, NERVURE dans cache_fenetre.py.
