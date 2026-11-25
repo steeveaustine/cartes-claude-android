@@ -8,7 +8,7 @@ NERVURE     = 0.6     # saillie des nervures qui ecrasent pour tenir en force
 N_NERVURES  = 36
 COLLERETTE  = 173.0   # deborde de 15 mm tout autour
 EP_COLL     = 2.4     # epaisseur de la collerette
-HAUT_JUPE   = 6.0     # profondeur dans le trou (plexi jusqu'a ~6 mm)
+HAUT_JUPE   = 25.0    # profondeur du trou (epaisseur de la fenetre)
 EP_JUPE     = 2.0     # paroi de la jupe
 CHANFREIN   = 1.2     # entree en biseau pour faciliter la pose
 
@@ -34,5 +34,5 @@ for i in range(N_NERVURES):
     nerv = n if nerv is None else nerv.union(n)
 
 piece = coll.union(lang).union(jupe).union(nerv)
-cq.exporters.export(piece, "cache_fenetre_v2.stl", tolerance=0.02, angularTolerance=0.1)
+cq.exporters.export(piece, "cache_fenetre_v3.stl", tolerance=0.02, angularTolerance=0.1)
 print("ok")

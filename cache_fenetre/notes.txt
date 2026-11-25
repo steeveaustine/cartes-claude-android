@@ -7,3 +7,6 @@ Reglages : TROU, JEU, NERVURE dans cache_fenetre.py.
 
 v2 : trou mesure exactement 143 mm.
 Jupe 142,6 mm (jeu 0,4) + nervures 0,6 mm ; collerette 173 mm ; reste identique. v1 (150 mm) conservee.
+
+v3 : profondeur du trou 25 mm. Jupe haute de 25 mm (nervures sur toute la hauteur), trou 143 mm, collerette 173 mm.
+Hauteur totale 27,4 mm. v1 et v2 conservees.
