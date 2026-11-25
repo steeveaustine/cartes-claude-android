@@ -14,3 +14,7 @@ Hauteur totale 27,4 mm. v1 et v2 conservees.
 Fichiers Bambu Studio : Cache_fenetre_PETG_P2S_v3.3mf (pose au centre du plateau, collerette en bas).
 Anneau_essai_143_PETG_P2S.3mf : anneau de test de l'ajustement dans le trou (~10 g, ~15 min).
 Reglages conseilles : PETG, 0,20 mm Standard, 3 parois, 15 % gyroide, sans support.
+
+Fichiers Bambu Studio : Cache_fenetre_PETG_P2S_v3.3mf (pose au centre du plateau, collerette en bas).
+Anneau_essai_143_PETG_P2S.3mf : anneau de test de l'ajustement dans le trou.
+Reglages conseilles : PETG, 0,20 mm Standard, 3 parois, 15 % gyroide, sans support.
