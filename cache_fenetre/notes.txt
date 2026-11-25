@@ -4,3 +4,6 @@ Cotes : collerette 180 x 2,4 mm ; jupe 149,6 mm (jeu 0,4) haute de 6 mm ; 36 ner
 Languette avec trou pour le retirer. Hauteur totale 8,4 mm.
 Matiere : PETG conseille (vitre froide, soleil l'ete), PLA possible. Impression collerette a plat, sans support.
 Reglages : TROU, JEU, NERVURE dans cache_fenetre.py.
+
+v2 : trou mesure exactement 143 mm.
+Jupe 142,6 mm (jeu 0,4) + nervures 0,6 mm ; collerette 173 mm ; reste identique. v1 (150 mm) conservee.
